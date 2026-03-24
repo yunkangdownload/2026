@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云康e家 - 下载中心</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <style>
+        :root {
+            --primary: #2E8B57;
+            --secondary: #90EE90;
+            --accent: #228B22;
+            --bg: #F0FFF0;
+            --text: #2F4F4F;
+            --card: #FFFFFF;
+            --shadow: rgba(46, 139, 87, 0.15);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--bg) 0%, #E0F6E0 100%);
+        }
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px var(--shadow);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--text);
+        }
+        .download-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            animation: pulse 2s infinite;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--shadow);
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .qrcode-section {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .qrcode-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+        .logo-image {
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+        .leaves {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .leaf {
+            position: fixed;
+            top: -50px;
+            width: 30px;
+            height: 30px;
+            font-size: 24px;
+            color: var(--secondary);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 1;
+            animation-name: fall;
+            animation-timing-function: linear;
+            animation-iteration-count: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .leaf::before {
+            content: "🍃";
+        }
+    </style>
+</head>
+<body>
+<div class="leaves"></div>
+<nav class="navbar">
+    <div class="nav-container">
+        <img src="/download/static/1025.jpg" alt="云康e家 Logo" class="logo-image">
+        <div style="font-weight: bold; color: var(--primary);">云康e家</div>
+    </div>
+</nav>
+<section id="home" class="hero">
+    <div class="hero-content" data-aos="fade-up" style="margin-top: 50px;">
+        <h1 class="animate__animated animate__fadeInDown">云康e家</h1>
+        <p class="animate__animated animate__fadeInUp">
+            打造一个集金融保障、健康管理、生活照护、家庭互动于一体的互联网智慧养老生态平台
+        </p>
+        <div class="download-buttons animate__animated animate__fadeInUp">
+            <a href="javascript:void(0)" class="btn btn-primary" id="downloadBtn">
+                <i class="fas fa-download"></i> 下载应用
+            </a>
+        </div>
+        <div style="margin-top: 50px;">
+            <div class="qrcode-section">
+                <img src="/download/static/qrcode.png" alt="云康e家下载二维码" class="qrcode-img">
+            </div>
+            <div>您好，如遇APP登录或访问有问题的，请重新下载安装即可！本下载地址为官方地址，请您保存上方二维码以防丢失！</div>
+        </div>
+
+    </div>
+</section>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 1000, once: true, offset: 100 });
+    function createLeaf() {
+        const leaf = document.createElement('div');
+        leaf.className = 'leaf';
+        leaf.style.left = Math.random() * 100 + 'vw';
+        leaf.style.animationDelay = Math.random() * 15 + 's';
+        leaf.style.animationDuration = (Math.random() * 10 + 10) + 's';
+        document.querySelector('.leaves').appendChild(leaf);
+        setTimeout(() => leaf.parentNode?.removeChild(leaf), 20000);
+    }
+    setInterval(createLeaf, 2000);
+    window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        navbar.style.background = window.scrollY > 100 ? 'rgba(255, 255, 255, 0.98)' : 'rgba(255, 255, 255, 0.95)';
+    });
+    document.getElementById('downloadBtn').addEventListener('click', function () {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        // 判断 iOS
+        if (/iPad|iPhone|iPod/.test(userAgent)) {
+            // 下载 .mobileconfig 文件
+            const configUrl = 'https://yunkangejia.github.io/download/apk/yunkangejia0324.mobileconfig';
+            const link = document.createElement('a');
+            link.href = configUrl;
+            link.download = '云康e家.mobileconfig';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        // 判断 Android
+        else if (/Android/.test(userAgent)) {
+            // 下载 .apk 文件
+            const apkUrl = 'https://dhfscpraln73i.cloudfront.net/ykej693.apk';
+            const link = document.createElement('a');
+            link.href = apkUrl;
+            link.download = '云康e家.apk';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        // 其他设备
+        else {
+            alert('请使用手机访问，并扫描上方二维码下载应用');
+        }
+    });
+</script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
